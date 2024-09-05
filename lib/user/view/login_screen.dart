@@ -5,7 +5,7 @@ import 'package:flutter_practice_01/common/layout/default_layout.dart';
 import '../../common/component/custom_text_form_feild.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  // const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,6 @@ class LoginScreen extends StatelessWidget {
 }
 
 class _Title extends StatelessWidget {
-  const _Title({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +63,6 @@ class _Title extends StatelessWidget {
 }
 
 class _SubTitle extends StatelessWidget {
-  const _SubTitle({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -44,3 +44,24 @@
 <br/>
 
 #
+
+<img src="img.png" width="500">
+
+#### [Q4] `const _SubTitle({Key? key}) : super(key: key);` 와 `  const _SubTitle({super.key});` 는 어떤차이가 있는거야? 원래는 같은 역할인줄 알았는데 앞에꺼는 노란 경고가 안뜨고 뒤에꺼는 경고가 뜨네
+
+#### [A4] 같은 역할을 하지만 Dart의 코드 해석방식 차이 때문이다.
+1. 먼저 경고창이 뜨는 이유는 프라이빗 위젯은 일반적으로 앱의 내부에서만 사용되기 때문에, 외부에서 이 위젯에 key를 전달할 일이 거의 없기때문이다.
+   - Key는 위젯을 고유하게 식별할 수 있게 해주며, Flutter의 위젯 트리에서 상태를 유지하거나 위젯 간의 구분을 할 수 있게 한다.
+   - 프라이빗 위젯은 외부에서 Key를 전달받을 일이 거의 없으므로, 만약 상위에서 key를 전달하지 않는다면 Dart는 Key가 필요하지 않다고 경고한다.
+
+2. `const _SubTitle({Key? key}) : super(key: key);`<br/>
+   - 이 방식에서는 `Key? key`를 명시적으로 선언하고, 선택적 매개변수로 `key`를 받아서 `super(key: key)`로 전달한다. 
+   - `Key? key`는 선택적 매개변수로 선언되었기 때문에 값이 전달되지 않으면 아무런 문제 없이 `null`로 처리된다.
+   - Dart는 여기서 `key` 두 경우 모두 처리할 수 있기에 경고창이 뜨지 않는다.
+
+3. `const _SubTitle({super.key});`<br/>
+   - 이 구문은 Dart 2.17에서 도입된 단축 문법이다. 여기서 `super.key`는 부모 클래스(StatelessWidget)의 `key` 매개변수를 간결하게 전달하는 방식이다. 
+   - Dart는 프라이빗 위젯에서 key 매개변수가 전달되지 않았음에도 불구하고 `super`로 전달되었지만 사용되지 않아서 불필요하다고 인식하고, 
+   - **"value for optional parameter 'Key' isn't ever given"** 이라는 경고를 띄운다.
+   - 따라서 경고창을 없애주기 위해서는 key를 상위위젯에서 주입, 혹은 super.key로 받지 않기, 혹은 린트 수정의 방법이 있다.
+
