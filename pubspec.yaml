@@ -20,19 +20,25 @@ flutter:
 
   uses-material-design: true
 
+  assets:
+    - asset/fonts/
+    - asset/img/food/
+    - asset/img/logo/
+    - asset/img/misc/
+    - asset/rive/
+    - asset/svg/icon/
+
   fonts:
     - family: NotoSans
       fonts:
-        - asset: asset/font.NotoSansKR-Black.otf
+        - asset: asset/fonts/NotoSansKR-Black.otf
           weight: 900
         - asset: asset/fonts/NotoSansKR-Bold.otf
           weight: 700
-        - asset: asset/font/NotoSansKR-Medium.otf
+        - asset: asset/fonts/NotoSansKR-Medium.otf
           weight: 500
         - asset: asset/fonts/NotoSansKR-Regular.otf
           weight: 400
         - asset: asset/fonts/NotoSansKR-Thin.otf
           weight: 100
 
-  assets:
-    - asset/
