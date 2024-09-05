@@ -61,7 +61,6 @@
 
 3. `const _SubTitle({super.key});`<br/>
    - 이 구문은 Dart 2.17에서 도입된 단축 문법이다. 여기서 `super.key`는 부모 클래스(StatelessWidget)의 `key` 매개변수를 간결하게 전달하는 방식이다. 
-   - Dart는 프라이빗 위젯에서 key 매개변수가 전달되지 않았음에도 불구하고 `super`로 전달되었지만 사용되지 않아서 불필요하다고 인식하고, 
-   - **"value for optional parameter 'Key' isn't ever given"** 이라는 경고를 띄운다.
+   - Dart는 프라이빗 위젯에서 key 매개변수가 전달되지 않았음에도 불구하고 `super`로 전달되었지만 사용되지 않아서 불필요하다고 인식하고, **"value for optional parameter 'Key' isn't ever given"** 이라는 경고를 띄운다.
    - 따라서 경고창을 없애주기 위해서는 key를 상위위젯에서 주입, 혹은 super.key로 받지 않기, 혹은 린트 수정의 방법이 있다.
 
